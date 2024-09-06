@@ -2212,8 +2212,8 @@ func (v CloudProjectAiAppModel) ToUpdate() *CloudProjectAiAppModel {
 		res.Command = v.Command
 	}
 
-	if !v.Cpu.IsUnknown() {
-		res.Cpu = v.Cpu
+	if !v.Resources.IsUnknown() && !v.Resources.Cpu.IsUnknown() {
+		res.Cpu = v.Resources.Cpu
 	}
 
 	if !v.DefaultHttpPort.IsUnknown() {
@@ -2236,20 +2236,20 @@ func (v CloudProjectAiAppModel) ToUpdate() *CloudProjectAiAppModel {
 		}
 	}
 
-	if !v.Flavor.IsUnknown() {
-		res.Flavor = v.Flavor
+	if !v.Resources.IsUnknown() && !v.Resources.Flavor.IsUnknown() {
+		res.Flavor = v.Resources.Flavor
 	}
 
-	if !v.Gpu.IsUnknown() {
-		res.Gpu = v.Gpu
+	if !v.Resources.IsUnknown() && !v.Resources.Gpu.IsUnknown() {
+		res.Gpu = v.Resources.Gpu
 	}
 
 	if !v.GrpcPort.IsUnknown() {
 		res.GrpcPort = v.GrpcPort
 	}
 
-	if !v.Url.IsUnknown() {
-		res.Url = v.Url
+	if !v.Image.IsUnknown() {
+		res.Url = v.Image
 	}
 
 	return res
