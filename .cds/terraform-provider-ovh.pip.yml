@@ -55,3 +55,6 @@ parameters:
   skipthistest.okms:
     type: boolean
     description: Skip OKMS tests
+  skipthistest.aideploy:
+    type: boolean
+    description: Skip AI deploy tests
