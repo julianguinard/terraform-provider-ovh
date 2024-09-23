@@ -144,7 +144,7 @@ func (r *cloudProjectAiAppResource) Delete(ctx context.Context, req resource.Del
 	}
 
 	// Delete API call logic
-	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.Id.ValueString()) + ""
+	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.Id.ValueString()) + "?force=true"
 	if err := r.config.OVHClient.Delete(endpoint, nil); err != nil {
 		resp.Diagnostics.AddError(
 			fmt.Sprintf("Error calling Delete %s", endpoint),
