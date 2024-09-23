@@ -99,7 +99,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 					},
 					"value": schema.StringAttribute{
 						CustomType:          ovhtypes.TfStringType{},
-						Required:            true,
+						Optional:            true,
 						Description:         "Value of the environment variable to set inside the job",
 						MarkdownDescription: "Value of the environment variable to set inside the job",
 					},
