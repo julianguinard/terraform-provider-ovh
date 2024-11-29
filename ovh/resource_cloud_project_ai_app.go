@@ -6,8 +6,6 @@ import (
 	"net/url"
 
 	"github.com/hashicorp/terraform-plugin-framework/resource"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
-	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
 var _ resource.ResourceWithConfigure = (*cloudProjectAiAppResource)(nil)
@@ -78,7 +76,7 @@ func (r *cloudProjectAiAppResource) Read(ctx context.Context, req resource.ReadR
 		return
 	}
 
-	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.AppId.ValueString()) + ""
+	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.Id.ValueString()) + ""
 
 	if err := r.config.OVHClient.Get(endpoint, &responseData); err != nil {
 		resp.Diagnostics.AddError(
@@ -110,7 +108,7 @@ func (r *cloudProjectAiAppResource) Update(ctx context.Context, req resource.Upd
 	}
 
 	// Update resource
-	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.AppId.ValueString()) + ""
+	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.Id.ValueString()) + ""
 	if err := r.config.OVHClient.Put(endpoint, planData.ToUpdate(), nil); err != nil {
 		resp.Diagnostics.AddError(
 			fmt.Sprintf("Error calling Put %s", endpoint),
@@ -120,7 +118,7 @@ func (r *cloudProjectAiAppResource) Update(ctx context.Context, req resource.Upd
 	}
 
 	// Read updated resource
-	endpoint = "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.AppId.ValueString()) + ""
+	endpoint = "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.Id.ValueString()) + ""
 	if err := r.config.OVHClient.Get(endpoint, &responseData); err != nil {
 		resp.Diagnostics.AddError(
 			fmt.Sprintf("Error calling Get %s", endpoint),
@@ -146,7 +144,7 @@ func (r *cloudProjectAiAppResource) Delete(ctx context.Context, req resource.Del
 	}
 
 	// Delete API call logic
-	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.AppId.ValueString()) + ""
+	endpoint := "/cloud/project/" + url.PathEscape(data.ServiceName.ValueString()) + "/ai/app/" + url.PathEscape(data.Id.ValueString()) + ""
 	if err := r.config.OVHClient.Delete(endpoint, nil); err != nil {
 		resp.Diagnostics.AddError(
 			fmt.Sprintf("Error calling Delete %s", endpoint),
