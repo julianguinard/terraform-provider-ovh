@@ -910,6 +910,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 								MarkdownDescription: "Prefix to fetch only part of the volume",
 							},
 							"public_git": schema.SingleNestedAttribute{
+								Optional: true,
 								Attributes: map[string]schema.Attribute{
 									"url": schema.StringAttribute{
 										CustomType:          ovhtypes.TfStringType{},
@@ -928,6 +929,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 								MarkdownDescription: "Volume details for public git repositories. Deprecated: Use volumeSource.publicGit instead",
 							},
 							"public_swift": schema.SingleNestedAttribute{
+								Optional: true,
 								Attributes: map[string]schema.Attribute{
 									"url": schema.StringAttribute{
 										CustomType:          ovhtypes.TfStringType{},
@@ -952,6 +954,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 								MarkdownDescription: "Public Cloud Storage Region",
 							},
 							"standalone": schema.SingleNestedAttribute{
+								Optional: true,
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										CustomType:          ovhtypes.TfStringType{},
@@ -970,6 +973,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 								MarkdownDescription: "Volume details for volumes that do not have a datasource. Deprecated: Use volumeSource.standalone instead",
 							},
 							"target_data_store": schema.SingleNestedAttribute{
+								Optional: true,
 								Attributes: map[string]schema.Attribute{
 									"alias": schema.StringAttribute{
 										CustomType:          ovhtypes.TfStringType{},
@@ -1014,6 +1018,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 							"volume_source": schema.SingleNestedAttribute{
 								Attributes: map[string]schema.Attribute{
 									"data_store": schema.SingleNestedAttribute{
+										Optional: true,
 										Attributes: map[string]schema.Attribute{
 											"alias": schema.StringAttribute{
 												CustomType:          ovhtypes.TfStringType{},
@@ -1056,6 +1061,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 										MarkdownDescription: "Volume details for data store containers",
 									},
 									"public_git": schema.SingleNestedAttribute{
+										Optional: true,
 										Attributes: map[string]schema.Attribute{
 											"url": schema.StringAttribute{
 												CustomType:          ovhtypes.TfStringType{},
@@ -1074,6 +1080,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 										MarkdownDescription: "Volume details for public git repositories",
 									},
 									"public_swift": schema.SingleNestedAttribute{
+										Optional: true,
 										Attributes: map[string]schema.Attribute{
 											"url": schema.StringAttribute{
 												CustomType:          ovhtypes.TfStringType{},
@@ -1092,6 +1099,7 @@ func CloudProjectAiAppResourceSchema(ctx context.Context) schema.Schema {
 										MarkdownDescription: "Volume details for public swift containers",
 									},
 									"standalone": schema.SingleNestedAttribute{
+										Optional: true,
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												CustomType:          ovhtypes.TfStringType{},
